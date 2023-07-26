@@ -10,7 +10,7 @@ public class Candidate {
 
     private String description;
 
-    LocalDateTime creationDate;
+    private LocalDateTime creationDate;
 
     public Candidate(int id, String name, String description, LocalDateTime creationDate) {
         this.id = id;
