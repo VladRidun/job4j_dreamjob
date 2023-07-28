@@ -12,11 +12,11 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Service
-public class SimpleCandidateService implements CandidateService{
+public class SimpleCandidateService implements CandidateService {
 
     private final CandidateRepository candidateRepository;
 
-    public  SimpleCandidateService(CandidateRepository candidateRepository)  {
+    public SimpleCandidateService(CandidateRepository candidateRepository) {
         this.candidateRepository = candidateRepository;
     }
 
