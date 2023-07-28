@@ -1,6 +1,5 @@
 package ru.job4j.dreamjob.repository;
 
-import net.jcip.annotations.GuardedBy;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Vacancy;
@@ -16,10 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
 
-    @GuardedBy("this")
     private final AtomicInteger nextId = new AtomicInteger(1);
 
-    @GuardedBy("this")
     private final ConcurrentHashMap<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
     private MemoryVacancyRepository() {
