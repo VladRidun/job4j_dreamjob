@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
 
-    private final AtomicInteger nextId = new AtomicInteger(1);
+    private final AtomicInteger nextId = new AtomicInteger();
 
     private final ConcurrentHashMap<Integer, Candidate> candidates = new ConcurrentHashMap<>();
 
@@ -29,7 +29,7 @@ public class MemoryCandidateRepository implements CandidateRepository {
 
     @Override
     public Candidate save(Candidate candidate) {
-        candidate.setId(nextId.getAndIncrement());
+        candidate.setId(nextId.incrementAndGet());
         candidates.put(candidate.getId(), candidate);
         return candidate;
     }

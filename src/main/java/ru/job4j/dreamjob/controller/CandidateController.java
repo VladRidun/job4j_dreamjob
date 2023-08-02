@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.dreamjob.dto.FileDto;
 import ru.job4j.dreamjob.model.Candidate;
-import ru.job4j.dreamjob.model.Vacancy;
 import ru.job4j.dreamjob.service.CandidateService;
 import ru.job4j.dreamjob.service.CityService;
 
 @ThreadSafe
 @Controller
-@RequestMapping("/candidates")/* Работать с кандидатами будем по URI /vacancies/** */
+@RequestMapping("/candidates")
 public class CandidateController {
 
     private final CandidateService candidateService;
@@ -46,6 +45,17 @@ public class CandidateController {
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("candidate", candidateOptional.get());
         return "candidates/one";
+    }
+
+    @PostMapping("/create")
+    public String create(@ModelAttribute Candidate candidate, @RequestParam MultipartFile file, Model model) {
+        try {
+            candidateService.save(candidate, new FileDto(file.getOriginalFilename(), file.getBytes()));
+            return "redirect:/candidates";
+        } catch (Exception e) {
+            model.addAttribute("message", e.getMessage());
+            return "errors/404";
+        }
     }
 
     @PostMapping("/update")
