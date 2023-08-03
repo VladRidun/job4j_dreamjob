@@ -1,6 +1,6 @@
 package ru.job4j.dreamjob.service;
 
-import ru.job4j.dreamjob.dto.FileDto;
+import ru.job4j.dreamjob.controller.dto.FileDto;
 import ru.job4j.dreamjob.model.Vacancy;
 
 import java.util.Collection;

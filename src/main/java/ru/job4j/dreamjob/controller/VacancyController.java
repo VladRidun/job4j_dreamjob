@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.job4j.dreamjob.dto.FileDto;
+import ru.job4j.dreamjob.controller.dto.FileDto;
 import ru.job4j.dreamjob.model.Vacancy;
 import ru.job4j.dreamjob.service.CityService;
 import ru.job4j.dreamjob.service.VacancyService;

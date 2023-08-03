@@ -1,4 +1,4 @@
-package ru.job4j.dreamjob.dto;
+package ru.job4j.dreamjob.controller.dto;
 
 public class FileDto {
 
