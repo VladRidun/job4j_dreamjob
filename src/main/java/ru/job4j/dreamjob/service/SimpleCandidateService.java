@@ -5,11 +5,9 @@ import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.controller.dto.FileDto;
 import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.repository.CandidateRepository;
-
 import java.util.Collection;
 import java.util.Optional;
 
-@ThreadSafe
 @Service
 public class SimpleCandidateService implements CandidateService {
 
@@ -17,8 +15,8 @@ public class SimpleCandidateService implements CandidateService {
 
     private final FileService fileService;
 
-    public SimpleCandidateService(CandidateRepository candidateRepository,  FileService fileService) {
-        this.candidateRepository = candidateRepository;
+    public SimpleCandidateService(CandidateRepository Sql2oCandidateRepository,  FileService fileService) {
+        this.candidateRepository = Sql2oCandidateRepository;
         this.fileService = fileService;
     }
 
