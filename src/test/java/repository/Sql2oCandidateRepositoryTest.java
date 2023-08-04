@@ -42,7 +42,6 @@ public class Sql2oCandidateRepositoryTest {
         sql2oCandidateRepository = new Sql2oCandidateRepository(sql2o);
         sql2oFileRepository = new Sql2oFileRepository(sql2o);
 
-        // нужно сохранить хотя бы один файл, т.к.  Candidate от него зависит
         file = new File("test", "test");
         sql2oFileRepository.save(file);
     }
@@ -63,7 +62,7 @@ public class Sql2oCandidateRepositoryTest {
     @Test
     public void whenSaveThenGetSame() {
         var creationDate = now().truncatedTo(ChronoUnit.MINUTES);
-        var candidate = sql2oCandidateRepository.save(new Candidate(0, "name", "description", creationDate,  1, file.getId()));
+        var candidate = sql2oCandidateRepository.save(new Candidate(0, "name", "description", creationDate, 1, file.getId()));
         var savedCandidate = sql2oCandidateRepository.findById(candidate.getId()).get();
         assertThat(savedCandidate).usingRecursiveComparison().isEqualTo(candidate);
     }
@@ -102,10 +101,10 @@ public class Sql2oCandidateRepositoryTest {
     @Test
     public void whenUpdateThenGetUpdated() {
         var creationDate = now().truncatedTo(ChronoUnit.MINUTES);
-        var vacancy = sql2oCandidateRepository.save(new Candidate(0, "Vlad", "description", creationDate,  1, file.getId()));
+        var vacancy = sql2oCandidateRepository.save(new Candidate(0, "Vlad", "description", creationDate, 1, file.getId()));
         var updatedCandidate = new Candidate(
                 vacancy.getId(), "new title", "new description", creationDate.plusDays(1),
-                 1, file.getId()
+                1, file.getId()
         );
         var isUpdated = sql2oCandidateRepository.update(updatedCandidate);
         var savedVacancy = sql2oCandidateRepository.findById(updatedCandidate.getId()).get();
