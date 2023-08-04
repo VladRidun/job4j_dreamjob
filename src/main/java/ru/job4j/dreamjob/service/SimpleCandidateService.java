@@ -15,8 +15,8 @@ public class SimpleCandidateService implements CandidateService {
 
     private final FileService fileService;
 
-    public SimpleCandidateService(CandidateRepository Sql2oCandidateRepository,  FileService fileService) {
-        this.candidateRepository = Sql2oCandidateRepository;
+    public SimpleCandidateService(CandidateRepository sql2oCandidateRepository,  FileService fileService) {
+        this.candidateRepository = sql2oCandidateRepository;
         this.fileService = fileService;
     }
 
