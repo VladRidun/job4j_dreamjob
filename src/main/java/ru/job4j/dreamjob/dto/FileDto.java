@@ -1,10 +1,8 @@
-package ru.job4j.dreamjob.controller.dto;
+package ru.job4j.dreamjob.dto;
 
 public class FileDto {
-
     private String name;
-
-    private byte[] content; /*тут кроется различие. доменная модель хранит путь, а не содержимое*/
+    private byte[] content;
 
     public FileDto(String name, byte[] content) {
         this.name = name;
@@ -26,5 +24,4 @@ public class FileDto {
     public void setContent(byte[] content) {
         this.content = content;
     }
-
 }
